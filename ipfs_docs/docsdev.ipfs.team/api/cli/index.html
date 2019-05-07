@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPFS Docs Portal</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="generator" content="Hugo 0.30.2" />
+
+<title>Command-Line Interface :: IPFS Docs Portal</title>
+<link rel="shortcut icon" href="../../images/favicon.png" type="image/x-icon" />
+<link href="../../css/nucleus.css" rel="stylesheet">
+<link href="../../css/font-awesome.min.css" rel="stylesheet">
+<link href="../../css/hybrid.css" rel="stylesheet">
+<link href="../../css/featherlight.min.css" rel="stylesheet">
+<link href="../../css/auto-complete.css" rel="stylesheet">
+<link href="../../theme-original/style.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<script src="../../js/jquery-2.x.min.js"></script>
+<style type="text/css">
+  :root #header + #content > #left > #rlblock_left {
+    display:none !important;
+  }
+</style>
+<meta name="description" content="The standard ipfs commands">
+
+
+    
+  </head>
+  <body data-url="/api/cli/">
+    
+      <div id="headermain"></div>
+<nav id="sidebar" class="">
+
+
+
+<div class="highlightable">
+  <div id="header-wrapper">
+    <div id="header">
+      <link rel="stylesheet" type="text/css" href="https://docs.ipfs.iostyle.css">
+
+
+	
+  
+    <p><a href="../../"><img src="../../images/ipfs-logo-vector-ice.svg" width="20%"><br>IPFS Documentation</a></p>
+
+  
+
+
+    </div>
+        <div class="searchbox">
+		    <label for="search-by"><i class="fa fa-search"></i></label>
+		    <input data-search-input id="search-by" type="text" placeholder="Search...">
+		    <span data-search-clear=""><i class="fa fa-close"></i></span>
+		</div>
+		<script type="text/javascript" src="../../js/lunr.min.js"></script>
+		<script type="text/javascript" src="../../js/auto-complete.js"></script>
+		<script type="text/javascript">
+        
+            var baseurl = "https:\/\/docs.ipfs.io";
+        
+		</script>
+		<script type="text/javascript" src="../../js/search.js"></script>
+  </div>
+
+      <ul class="topics">
+            <li data-nav-id="/" class="dd-item">
+            <a href="../../"><i class="fa fa-fw fa-home"></i></a>
+            </li>
+    <li data-nav-id="/getting-started/" class="dd-item alwaysopen">
+      <a href="../../getting-started/">
+        <span>Getting Started</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </a>
+        <ul>
+      <li data-nav-id="/getting-started/overview/" class="dd-item">
+        <a href="../../getting-started/overview/">
+          <span>Overview</span>
+        </a>
+    </li>
+      <li data-nav-id="/getting-started/installation/" class="dd-item">
+        <a href="../../getting-started/installation/">
+          <span>Installation</span>
+        </a>
+    </li>
+      <li data-nav-id="/getting-started/basic-usage/" class="dd-item">
+        <a href="../../getting-started/basic-usage/">
+          <span>Basic usage</span>
+        </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/api/" class="dd-item parent alwaysopen">
+      <a href="../../api/">
+        <span>API</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </a>
+        <ul>
+    <li data-nav-id="/api/cli/" class="dd-item parent active">
+      <a href="../../api/cli/">
+        <span>Command-Line Interface</span>
+      </a>
+    </li>
+    <li data-nav-id="/api/http-api/" class="dd-item">
+      <a href="../../api/http-api/">
+        <span>HTTP Interface</span>
+      </a>
+    </li>
+    <li data-nav-id="/api/js/" class="dd-item">
+      <a href="../../api/js/">
+        <span>JavaScript Interface</span>
+      </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/components/" class="dd-item alwaysopen">
+      <a href="../../components/">
+        <span>Components</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </a>
+        <ul>
+    <li data-nav-id="/components/blockservice/" class="dd-item alwaysopen">
+      <a href="../../components/blockservice/">
+        <span>Block Service</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </a>
+        <ul>
+      <li data-nav-id="/components/blockservice/datastore/" class="dd-item">
+        <a href="../../components/blockservice/datastore/">
+          <span>Datastore</span>
+        </a>
+    </li>
+      <li data-nav-id="/components/blockservice/exchange/" class="dd-item">
+        <a href="../../components/blockservice/exchange/">
+          <span>Exchange</span>
+        </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/components/data-structures/" class="dd-item alwaysopen">
+      <a href="../../components/data-structures/">
+        <span>Data Structures</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </a>
+        <ul>
+    <li data-nav-id="/components/data-structures/multiformats/" class="dd-item alwaysopen">
+      <a href="../../components/data-structures/multiformats/">
+        <span>Multiformats</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </a>
+        <ul>
+    <li data-nav-id="/components/data-structures/multiformats/multihash/" class="dd-item">
+      <a href="../../components/data-structures/multiformats/multihash/">
+        <span>MultiHash</span>
+      </a>
+    </li>
+    <li data-nav-id="/components/data-structures/multiformats/multibase/" class="dd-item">
+      <a href="../../components/data-structures/multiformats/multibase/">
+        <span>MultiBase</span>
+      </a>
+    </li>
+    <li data-nav-id="/components/data-structures/multiformats/multiaddr/" class="dd-item">
+      <a href="../../components/data-structures/multiformats/multiaddr/">
+        <span>MultiAddr</span>
+      </a>
+    </li>
+    <li data-nav-id="/components/data-structures/multiformats/multicodec/" class="dd-item">
+      <a href="../../components/data-structures/multiformats/multicodec/">
+        <span>MultiCodec</span>
+      </a>
+    </li>
+    <li data-nav-id="/components/data-structures/multiformats/multistream/" class="dd-item">
+      <a href="../../components/data-structures/multiformats/multistream/">
+        <span>MultiStream</span>
+      </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/components/data-structures/ipld/" class="dd-item alwaysopen">
+      <a href="../../components/data-structures/ipld/">
+        <span>IPLD</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </a>
+        <ul>
+      <li data-nav-id="/components/data-structures/ipld/cid/" class="dd-item">
+        <a href="../../components/data-structures/ipld/cid/">
+          <span>Content Identifiers - CID</span>
+        </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/components/data-structures/unixfs/" class="dd-item">
+      <a href="../../components/data-structures/unixfs/">
+        <span>UnixFS</span>
+      </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/components/gateway/" class="dd-item alwaysopen">
+      <a href="../../components/gateway/">
+        <span>Gateway</span>
+      </a>
+    </li>
+    <li data-nav-id="/components/ipns/" class="dd-item alwaysopen">
+      <a href="../../components/ipns/">
+        <span>IPNS</span>
+      </a>
+    </li>
+    <li data-nav-id="/components/bitswap/" class="dd-item">
+      <a href="../../components/bitswap/">
+        <span>BitSwap</span>
+      </a>
+    </li>
+    <li data-nav-id="/components/libp2p/" class="dd-item">
+      <a href="../../components/libp2p/">
+        <span>LibP2P</span>
+      </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/implementations/" class="dd-item alwaysopen">
+      <a href="../../implementations/">
+        <span>Implementations</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </a>
+        <ul>
+    <li data-nav-id="/implementations/go/" class="dd-item alwaysopen">
+      <a href="../../implementations/go/">
+        <span>Go-IPFS</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </a>
+        <ul>
+    <li data-nav-id="/implementations/go/config/" class="dd-item">
+      <a href="../../implementations/go/config/">
+        <span>Configutation</span>
+      </a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/working-with/" class="dd-item alwaysopen">
+      <a href="../../working-with/">
+        <span>Working with IPFS</span>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </a>
+        <ul>
+    <li data-nav-id="/working-with/deploy-website/" class="dd-item">
+      <a href="../../working-with/deploy-website/">
+        <span>Deploy a website on IPNS</span>
+      </a>
+    </li>
+      <li data-nav-id="/working-with/examples/" class="dd-item">
+        <a href="../../working-with/examples/">
+          <span>Examples</span>
+        </a>
+    </li>
+        </ul>
+    </li>
+
+
+
+        <section id="shortcuts">
+                <li class="" role=""><a href="" target="_blank" rel="noopener"></a></li>
+                <li class="" role=""><h3>More</h3><a href="https://github.com/ipfs/go-ipfs" target="_blank" rel="noopener"><i class='fa fa-github'></i> Go IPFS repo</a></li>
+                <li class="" role=""><a href="../../showcase" target="_blank" rel="noopener"><i class='fa fa-camera'></i> Showcases</a></li>
+                <li class="" role=""><a href="../../link" target="_blank" rel="noopener"><i class='fa fa-bullhorn'></i> Link Goes Here</a></li>
+        </section>
+
+    <hr />
+    <li></li>
+    
+    </ul>
+
+ <section id="footer">
+    </section>
+  </div>
+</nav>
+
+
+
+<section id="body">
+<div id="overlay"></div>
+<div class="padding highlightable">
+
+  <div id="top-bar">
+    
+      
+      
+      
+    <div id="top-github-link">
+      <a class="github-link" href="https://github.com/ipfs/docs/tree/master/content/api/cli/_index.md" target="blank">
+        <i class="fa fa-code-fork"></i>
+        Edit page
+      </a>
+    </div><div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+        <span id="sidebar-toggle-span">
+          <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+            <i class="fa fa-bars"></i>
+          </a>
+        </span>
+        <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+        <span class="links">
+        
+
+
+
+
+
+
+
+ <a href='../../'>IPFS Documentation</a> > <a href='../../api/'>API</a> > Command-Line Interface
+
+ 
+
+ 
+
+   
+        </span>
+    </div>
+    
+    
+    <div class="progress">
+        <div class="wrapper">
+    
+        </div>
+    </div>
+    
+
+  </div>
+
+
+<div id="body-inner">
+  
+    <h1>Command-Line Interface</h1>
+  
+
+
+
+    
+    
+    
+
+<p>The latest version of the CLI documentation can be located <a href="https://github.com/ipfs/website/blob/master/content/docs/commands.md">here</a>.</p>
+
+
+
+    
+    
+          <footer class=" footline" >
+	
+</footer>
+  </div>
+</div>
+
+<div id="navigation">
+</div>
+
+</section>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+  <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+</div>    
+
+<script src="../../js/clipboard.min.js"></script>
+<script src="../../js/featherlight.min.js"></script>
+<script src="../../js/html5shiv-printshiv.min.js"></script>
+<script src="../../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="../../js/modernizr.custom.71422.js"></script>
+<script src="../../js/docdock.js"></script>
+<script src="../../theme-original/script.js"></script>
+
+
+    
+
+    
+    
+
+    
+  </body>
+</html>
